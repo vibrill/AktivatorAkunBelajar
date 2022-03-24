@@ -3,13 +3,13 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-sekolah = "PUSUNGMALANG2"
-password = '####'
+sekolah = "PUSUNGMALANG1"
+password = 'pusungmalang'
 listakun = []
 with open('act.csv', newline='') as csvfile:
      reader = csv.DictReader(csvfile)
      for row in reader:
-         listakun.append([row['Email'], row['Password']])
+         listakun.append([row['belajarid_email'], row['belajarid_initial_password']])
 
 for item in listakun:
     print(item[0])
@@ -26,9 +26,9 @@ for item in listakun:
     browser = webdriver.Firefox()
     browser.execute_script("window.focus();")
     browser.get(login)
+    sleep(5)
     failed = []
     try:
-        sleep(5)
         browser.implicitly_wait(15)
         browser.find_element(By.ID,'identifierId').send_keys(item[0])
         browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button').click()
@@ -47,7 +47,7 @@ for item in listakun:
         browser.find_element(By.ID,'submit').click()
         sleep(5)
         browser.implicitly_wait(15)
-        browser.save_screenshot("JPG/"+sekolah+'/'+item[0]+'.png')
+        browser.save_screenshot(item[0]+'.png')
         print('aktivasi sukses, menutup browser')
     except:
         failed.append(item)

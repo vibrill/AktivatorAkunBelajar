@@ -3,7 +3,8 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-password = 'pusungmalang'
+NamaSekolah = "Pusungmalang2"
+password = '######'
 listakun = []
 with open('act.csv', newline='') as csvfile:
      reader = csv.DictReader(csvfile)

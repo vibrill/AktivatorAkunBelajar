@@ -8,7 +8,7 @@ sekolah = "PUSUNGMALANG1"
 password = ''
 with open('pass','r') as f:
     password = f.read()
-    
+
 listakun = []
 with open('act.csv', newline='') as csvfile:
      reader = csv.DictReader(csvfile)
@@ -62,4 +62,4 @@ for item in listakun:
     sleep(3)
 
 with open('failed.txt','w') as f:
-    f.write(failed)
+    f.write(''.join(failed))

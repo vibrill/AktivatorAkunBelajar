@@ -60,6 +60,9 @@ for item in listakun:
     browser.implicitly_wait(15) 
     browser.close()
     sleep(3)
+    
+text = ''
+for item in failed:
 
 with open('failed.txt','w') as f:
     f.write(''.join(failed))

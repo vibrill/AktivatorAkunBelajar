@@ -48,7 +48,7 @@ for item in listakun:
         sleep(5)
         browser.implicitly_wait(15)
         browser.save_screenshot(item[0]+'.png')
-        print('aktivasi sukses, menutup browser')
+        print(f'aktivasi {item[0]} sukses, menutup browser')
     except:
         failed.append(item)
         print("different pass")

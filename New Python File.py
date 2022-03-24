@@ -4,9 +4,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 sekolah = "PUSUNGMALANG1"
+
 password = ''
 with open('pass','r') as f:
     password = f.read()
+    
 listakun = []
 with open('act.csv', newline='') as csvfile:
      reader = csv.DictReader(csvfile)

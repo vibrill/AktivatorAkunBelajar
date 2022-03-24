@@ -45,6 +45,7 @@ for item in listakun:
     browser.find_element(By.ID,'submit').click()
     sleep(5)
     browser.implicitly_wait(15)
+    browser.save_screenshot(item[0]+'.png')
     print('aktivasi sukses, menutup browser')
     sleep(5)
     browser.implicitly_wait(15) 

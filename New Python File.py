@@ -7,7 +7,7 @@ from os import path, mkdir
 
 
 wait = 5
-sekolah = 'SDNDELIK'
+sekolah = 'SDNPuspo3'
 
 if path.exists(sekolah):
     print('folder ready')
@@ -63,19 +63,21 @@ if ask == 'y':
             browser.implicitly_wait(5)
             try :
                 klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')
+                browser.implicitly_wait(10)
+                klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
                 browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(password)
                 sleep(2)
                 browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(Keys.ENTER)
-                #klik('')
+                print('verified')
             except:
-                print('verifikasi selesai')
+                print('no need verivication')
             sleep(wait)
             browser.implicitly_wait(15)
             browser.save_screenshot(sekolah+'/'+item[0]+'.png')
             print(f'aktivasi {item[0]} sukses, menutup browser')
         except:
             failed.append(item)
-            print("different pass")
+            print(">>>>>different pass<<<<<")
         sleep(wait)
         browser.implicitly_wait(15) 
         browser.close()

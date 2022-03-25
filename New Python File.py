@@ -7,7 +7,7 @@ from os import path, mkdir
 
 
 wait = 5
-sekolah = 'SDNPuspo3'
+sekolah = 'SDNPuspo1'
 
 if path.exists(sekolah):
     print('folder ready')

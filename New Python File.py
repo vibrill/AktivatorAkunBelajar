@@ -7,7 +7,7 @@ from os import path, mkdir
 
 
 wait = 5
-sekolah = 'JJwulung1'
+sekolah = 'SDNKeduwung2'
 
 if path.exists(sekolah):
     print('folder ready')
@@ -37,7 +37,7 @@ if ask == 'y':
         browser.execute_script("arguments[0].click();", klikable) 
 
     for item in listakun:
-        browser = webdriver.Firefox()
+        browser = webdriver.Firefox(executable_path=r'geckodriver.exe')
         browser.execute_script("window.focus();")
         browser.get(login)
         sleep(wait)
@@ -85,7 +85,7 @@ if ask == 'y':
 
     text = ''
     for anu in failed:
-        text+=anu[0]+','+anu[1]+'\n'
+        text+=''.join(anu)+'\n'
 
     with open('failed.csv','w') as f:
         f.write(text)

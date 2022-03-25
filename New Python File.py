@@ -5,9 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
 
-
 wait = 5
 sekolah = 'SDNKeduwung2'
+
+def klik(elemXPath):
+    sleep(2)
+    elemnya  = elemXPath 
+    klikable = browser.find_element(By.XPATH,elemnya)
+    browser.execute_script("arguments[0].click();", klikable) 
 
 if path.exists(sekolah):
     print('folder ready')
@@ -29,12 +34,6 @@ if ask == 'y':
         print(item[0])
 
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
-
-    def klik(elemXPath):
-        sleep(2)
-        elemnya  = elemXPath 
-        klikable = browser.find_element(By.XPATH,elemnya)
-        browser.execute_script("arguments[0].click();", klikable) 
 
     for item in listakun:
         browser = webdriver.Firefox(executable_path=r'geckodriver.exe')

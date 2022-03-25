@@ -2,6 +2,7 @@ import csv
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
 
 
@@ -59,7 +60,16 @@ if ask == 'y':
             browser.find_element(By.NAME,'ConfirmPassword').send_keys(password)
             browser.find_element(By.ID,'submit').click()
             sleep(wait)
-            sleep(60)
+            browser.implicitly_wait(5)
+            try :
+                klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')
+                browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(password)
+                sleep(2)
+                browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(Keys.ENTER)
+                #klik('')
+            except:
+                print('verifikasi selesai')
+            sleep(wait)
             browser.implicitly_wait(15)
             browser.save_screenshot(sekolah+'/'+item[0]+'.png')
             print(f'aktivasi {item[0]} sukses, menutup browser')

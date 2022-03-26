@@ -36,7 +36,7 @@ if ask == 'y':
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
 
     for item in listakun:
-        browser = webdriver.Firefox(executable_path=r'geckodriver.exe')
+        browser = webdriver.Firefox()
         browser.execute_script("window.focus();")
         browser.get(login)
         sleep(wait)

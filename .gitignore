@@ -2,6 +2,6 @@ env
 *.log
 JPG
 *.png
-pass
+pass.txt
 *.csv
 act.csv

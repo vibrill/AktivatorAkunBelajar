@@ -19,7 +19,7 @@ if path.exists(sekolah):
 else :
     mkdir(sekolah)
 password = ''
-with open('pass','r') as f:
+with open('pass.txt','r') as f:
     password = f.read()
 print(password)
 ask = input(f'sekolah yang diproses = {sekolah}\npasword yang digunakan = {password}\napakah benar? y/n ')

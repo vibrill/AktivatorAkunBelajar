@@ -7,13 +7,13 @@ from os import path, mkdir
 
 wait = 5
 sekolah = 'coba'
-'''
+
 def klik(elemXPath):
     sleep(2)
     elemnya  = elemXPath 
     klikable = browser.find_element(By.XPATH,elemnya)
     browser.execute_script("arguments[0].click();", klikable) 
-'''
+
 sekolah = 'JPG/'+sekolah
 if path.exists(sekolah):
     print('folder ready')
@@ -34,7 +34,7 @@ if ask == 'y':
 
     for item in listakun:
         print(item[0])
-'''
+
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
 
     for item in listakun:
@@ -92,4 +92,4 @@ if ask == 'y':
         f.write(text)
 else:
     print('process aborted')
-    '''
+    

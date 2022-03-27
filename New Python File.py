@@ -15,6 +15,12 @@ def klik(elemXPath):
     browser.execute_script("arguments[0].click();", klikable) 
 
 sekolah = 'JPG/'+sekolah
+
+if path.exists('JPG'):
+    print('folder ready')
+else :
+    mkdir('JPG')
+
 if path.exists(sekolah):
     print('folder ready')
 else :

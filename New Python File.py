@@ -6,14 +6,15 @@ from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
 
 wait = 5
-sekolah = 'SDNKeduwung2'
-
+sekolah = 'coba'
+'''
 def klik(elemXPath):
     sleep(2)
     elemnya  = elemXPath 
     klikable = browser.find_element(By.XPATH,elemnya)
     browser.execute_script("arguments[0].click();", klikable) 
-
+'''
+sekolah = 'JPG/'+sekolah
 if path.exists(sekolah):
     print('folder ready')
 else :
@@ -28,11 +29,12 @@ if ask == 'y':
     with open('act.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            listakun.append([row['belajarid_email'], row['belajarid_initial_password']])
+            if row['belajarid_email']!='':
+                listakun.append([row['belajarid_email'], row['belajarid_initial_password']])
 
     for item in listakun:
         print(item[0])
-
+'''
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
 
     for item in listakun:
@@ -90,3 +92,4 @@ if ask == 'y':
         f.write(text)
 else:
     print('process aborted')
+    '''

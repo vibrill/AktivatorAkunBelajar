@@ -16,6 +16,13 @@ def klik(elemXPath):
 
 sekolah = 'JPG/'+sekolah
 
+if path.exists('pass.txt'):
+    print('file pass ready')
+else :
+    with open('pass.txt','w') as f:
+        f.write('Password')
+
+
 if path.exists('JPG'):
     print('folder ready')
 else :

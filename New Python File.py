@@ -38,6 +38,7 @@ with open('pass.txt','r') as f:
 print(password)
 ask = input(f'sekolah yang diproses = {sekolah}\npasword yang digunakan = {password}\napakah benar? y/n ')
 if ask == 'y':
+    failed = []
     listakun = []
     with open('act.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -47,15 +48,14 @@ if ask == 'y':
 
     for item in listakun:
         print(item[0])
-
+        
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
-
     for item in listakun:
         browser = webdriver.Firefox()
         browser.execute_script("window.focus();")
         browser.get(login)
         sleep(wait)
-        failed = []
+        
         try:
             browser.implicitly_wait(15)
             browser.find_element(By.ID,'identifierId').send_keys(item[0])

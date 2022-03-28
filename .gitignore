@@ -2,6 +2,7 @@ env
 *.log
 JPG
 *.png
+*.txt
 pass.txt
 *.csv
 act.csv

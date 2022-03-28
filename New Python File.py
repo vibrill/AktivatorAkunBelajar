@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
 
 wait = 5
-sekolah = 'coba'
+sekolah = 'Palangsari1'
 
 def klik(elemXPath):
     sleep(2)
@@ -92,17 +92,20 @@ if ask == 'y':
                 browser.save_screenshot(sekolah+'/'+item[0]+'.png')
                 print(f'aktivasi {item[0]} sukses, menutup browser')
             except:
-                print('proses reaktivasi')
-                browser.find_element(By.NAME,'Passwd').send_keys(password)
-                browser.find_element(By.NAME,'ConfirmPasswd').send_keys(password)
-                klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button')
-                sleep(3)
                 try:
-                    warni = browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[2]/div[2]/span').text
-                    print('gagal : '+warni)
+                    print('proses reaktivasi')
+                    browser.find_element(By.NAME,'Passwd').send_keys(password)
+                    browser.find_element(By.NAME,'ConfirmPasswd').send_keys(password)
+                    klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button')
+                    sleep(3)
+                    try:
+                        warni = browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[2]/div[2]/span').text
+                        print('gagal : '+warni)
+                    except:
+                        browser.save_screenshot(sekolah+'/'+item[0]+'.png')
+                        print(f'reaktivasi {item[0]} sukses')
                 except:
-                    browser.save_screenshot(sekolah+'/'+item[0]+'.png')
-                    print(f'reaktivasi {item[0]} sukses')
+                    print('unknown err')
             
         except:
             failed.append(item)

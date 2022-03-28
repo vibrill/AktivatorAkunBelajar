@@ -48,8 +48,9 @@ if ask == 'y':
 
     for item in listakun:
         print(item[0])
-        
+
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
+
     for item in listakun:
         browser = webdriver.Firefox()
         browser.execute_script("window.focus();")

@@ -111,7 +111,11 @@ if ask == 'y':
                         browser.save_screenshot(sekolah+'/'+item[0]+'.png')
                         print(f'reaktivasi {item[0]} sukses')
                 except:
-                    print('unknown err')
+                    try:
+                        sudahdiubah = browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[2]/div[2]/span').text
+                        print(sudahdiubah)
+                    except:
+                        print('error lainnya, program masih berjalan, tunggu sampai selesai')
             
         except:
             failed.append(item)
@@ -127,6 +131,7 @@ if ask == 'y':
 
     with open('failed.csv','w') as f:
         f.write(text)
+    print('proses selesai')
 else:
     print('process aborted')
     

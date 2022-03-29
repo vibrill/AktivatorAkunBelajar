@@ -4,9 +4,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
 
 wait = 5
-sekolah = 'Palangsari1'
+sekolah = 'Tempuran2'
 
 def klik(elemXPath):
     sleep(2)
@@ -52,7 +56,7 @@ if ask == 'y':
     login = "https://accounts.google.com/Login?hl=id&refresh=1%29%2C"
 
     for item in listakun:
-        browser = webdriver.Firefox()
+        browser = webdriver.Firefox(options = options)
         browser.execute_script("window.focus();")
         browser.get(login)
         sleep(wait)

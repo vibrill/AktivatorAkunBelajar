@@ -6,11 +6,13 @@ from selenium.webdriver.common.keys import Keys
 from os import path, mkdir
 from selenium.webdriver.firefox.options import Options
 
-options = Options()
-options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
 
 wait = 5
 sekolah = 'Tempuran2'
+
+
+options = Options()
+options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
 
 def klik(elemXPath):
     sleep(2)

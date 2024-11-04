@@ -73,14 +73,14 @@ if ask == 'y':
             #halaman awal input email
             browser.implicitly_wait(15)
             browser.find_element(By.ID,'identifierId').send_keys(item[0])
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login nov 2024
             sleep(wait)
             
             #halaman input initial password
             browser.implicitly_wait(15)
-            klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1])
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #selanjutnya
+            klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input') #nov 2024
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1]) #nov 2024
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #selanjutnya nov 2024
             sleep(wait)
             browser.implicitly_wait(15)
             try:
@@ -93,6 +93,7 @@ if ask == 'y':
                 browser.find_element(By.ID,'submit').click()
                 sleep(wait)
                 browser.implicitly_wait(5)
+                #cek > ke verifikasi || ke akhir sukses (perbaikan script sampai disini nov 2024)
                 try :
                     #halaman verifikasi untuk akun akun yang butuh verifikasi
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')

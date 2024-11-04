@@ -7,9 +7,9 @@ from os import path, mkdir
 from selenium.webdriver.firefox.options import Options
 
 """
-ini adalah script yang ditulis tahun 2022
-pengembangan di google selama ini membuat banyak alamat xpath halaman web google berubah  
-dan tidak lagi sesuai dengan xpath yang tertulis pada script dan jika dijalankan anda mungkin menemui error
+ini adalah script yang ditulis tahun 2022,
+pengembangan google selama ini membuat banyak xpath elemen web google berubah,  
+dan tidak lagi sesuai dengan xpath yang tertulis pada script, dan jika anda jalankan mungkin akan menemui error
 saat ini script ini masih dalam perbaikan (5 Nov 2024)
 """
 

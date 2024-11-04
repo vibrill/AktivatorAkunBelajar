@@ -93,9 +93,9 @@ if ask == 'y':
                 browser.find_element(By.ID,'submit').click()
                 sleep(wait)
                 browser.implicitly_wait(5)
-                #cek > ke verifikasi || ke akhir sukses (perbaikan script sampai disini nov 2024)
+                #cek > ke verifikasi || ke akhir sukses (perbaikan script sampai disini 5 nov 2024)
                 try :
-                    #halaman verifikasi untuk akun akun yang butuh verifikasi
+                    #halaman verifikasi untuk akun akun yang butuh verifikasi (belum diperbaiki 5 nov 2024)
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')
                     browser.implicitly_wait(10)
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
@@ -106,7 +106,7 @@ if ask == 'y':
                 except:
                     print('no need verification')
                     
-                #akhir sukses script dan skrinsot
+                #akhir sukses script dan skrinsot (checked and fix 5 nov 2024)
                 sleep(wait)
                 browser.implicitly_wait(15)
                 browser.save_screenshot(sekolah+'/'+item[0]+'.png')

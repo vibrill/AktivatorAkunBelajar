@@ -75,6 +75,7 @@ if ask == 'y':
             browser.find_element(By.ID,'identifierId').send_keys(item[0])
             browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login
             sleep(wait)
+            
             #halaman input initial password
             browser.implicitly_wait(15)
             klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
@@ -103,6 +104,7 @@ if ask == 'y':
                     print('verified')
                 except:
                     print('no need verification')
+                    
                 #akhir sukses script dan skrinsot
                 sleep(wait)
                 browser.implicitly_wait(15)

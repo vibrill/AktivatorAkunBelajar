@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.options import Options
 """
 ini adalah script yang ditulis tahun 2022
 pengembangan di google selama ini membuat banyak alamat xpath halaman web google berubah  
-dan tidak sesuai lagi dengan xpath pada scriptdan jika dijalankan anda mungkin menemui error
+dan tidak lagi sesuai dengan xpath yang tertulis pada script dan jika dijalankan anda mungkin menemui error
 saat ini script ini masih dalam perbaikan (5 Nov 2024)
 """
 

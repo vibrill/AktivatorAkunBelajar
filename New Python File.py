@@ -8,7 +8,7 @@ from selenium.webdriver.firefox.options import Options
 
 
 wait = 5
-sekolah = 'Tempuran2'
+sekolah = 'SMP'
 
 
 options = Options()
@@ -50,7 +50,7 @@ if ask == 'y':
         reader = csv.DictReader(csvfile)
         for row in reader:
             if row['belajarid_email']!='':
-                listakun.append([row['belajarid_email'], row['belajarid_initial_password']])
+                listakun.append([row['belajarid_email'], row['initial_password']])
 
     for item in listakun:
         print(item[0])
@@ -66,16 +66,16 @@ if ask == 'y':
         try:
             browser.implicitly_wait(15)
             browser.find_element(By.ID,'identifierId').send_keys(item[0])
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button').click()
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login
             sleep(wait)
             browser.implicitly_wait(15)
-            klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1])
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button').click()
+            klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1])
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #selanjutnya
             sleep(wait)
             browser.implicitly_wait(15)
             try:
-                browser.find_element(By.ID,'accept').click()
+                browser.find_element(By.ID,'confirm').click()
                 sleep(wait)
                 browser.implicitly_wait(15)
                 browser.find_element(By.NAME,'Password').send_keys(password)
@@ -122,7 +122,7 @@ if ask == 'y':
             print(">>>>>different pass<<<<<")
         sleep(wait)
         browser.implicitly_wait(15) 
-        browser.close()
+        #browser.close()
         sleep(3)
 
     text = ''

@@ -70,10 +70,12 @@ if ask == 'y':
         sleep(wait)
         
         try:
+            #halaman awal input email
             browser.implicitly_wait(15)
             browser.find_element(By.ID,'identifierId').send_keys(item[0])
             browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login
             sleep(wait)
+            #halaman input initial password
             browser.implicitly_wait(15)
             klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
             browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1])
@@ -81,6 +83,7 @@ if ask == 'y':
             sleep(wait)
             browser.implicitly_wait(15)
             try:
+                #halaman konfirmasi dan ubah password, lompat ke halaman raktivasi jika sudah aktif
                 browser.find_element(By.ID,'confirm').click()
                 sleep(wait)
                 browser.implicitly_wait(15)
@@ -90,6 +93,7 @@ if ask == 'y':
                 sleep(wait)
                 browser.implicitly_wait(5)
                 try :
+                    #halaman verifikasi untuk akun akun yang butuh verifikasi
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')
                     browser.implicitly_wait(10)
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
@@ -99,25 +103,30 @@ if ask == 'y':
                     print('verified')
                 except:
                     print('no need verification')
+                #akhir sukses script dan skrinsot
                 sleep(wait)
                 browser.implicitly_wait(15)
                 browser.save_screenshot(sekolah+'/'+item[0]+'.png')
                 print(f'aktivasi {item[0]} sukses, menutup browser')
             except:
                 try:
+                    #halaman raktivasi, lompat ke warning password salah jika gagal
                     print('proses reaktivasi')
                     browser.find_element(By.NAME,'Passwd').send_keys(password)
                     browser.find_element(By.NAME,'ConfirmPasswd').send_keys(password)
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button')
                     sleep(3)
                     try:
+                        #halaman gagal reaktivasi
                         warni = browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[2]/div[2]/span').text
                         print('gagal : '+warni)
                     except:
+                        #akhir sukses script reaktivsi dan skrinsot
                         browser.save_screenshot(sekolah+'/'+item[0]+'.png')
                         print(f'reaktivasi {item[0]} sukses')
                 except:
                     try:
+                        #halaman warning password salah
                         sudahdiubah = browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[2]/div[2]/span').text
                         print(sudahdiubah)
                     except:

@@ -137,7 +137,7 @@ if ask == 'y':
             
         except:
             failed.append(item)
-            print(">>>>>different pass<<<<<")
+            print("Xpath tidak ditemukan, please update script")
         sleep(wait)
         browser.implicitly_wait(15) 
         browser.close()

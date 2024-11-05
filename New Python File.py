@@ -140,7 +140,7 @@ if ask == 'y':
             print(">>>>>different pass<<<<<")
         sleep(wait)
         browser.implicitly_wait(15) 
-        #browser.close()
+        browser.close()
         sleep(3)
 
     text = ''

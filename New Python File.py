@@ -10,7 +10,6 @@ from selenium.webdriver.firefox.options import Options
 ini adalah script yang ditulis tahun 2022,
 pengembangan google selama ini membuat banyak xpath elemen web google berubah,  
 dan tidak lagi sesuai dengan xpath yang tertulis pada script, dan jika anda jalankan mungkin akan menemui error
-saat ini script ini masih dalam perbaikan (5 Nov 2024)
 """
 
 wait = 5
@@ -73,14 +72,14 @@ if ask == 'y':
             #halaman awal input email
             browser.implicitly_wait(15)
             browser.find_element(By.ID,'identifierId').send_keys(item[0])
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #tombol login nov 2024
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() 
             sleep(wait)
             
             #halaman input initial password
             browser.implicitly_wait(15)
             klik('/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input') #nov 2024
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1]) #nov 2024
-            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click() #selanjutnya nov 2024
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input').send_keys(item[1]) 
+            browser.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click()
             sleep(wait)
             browser.implicitly_wait(15)
             try:
@@ -93,9 +92,9 @@ if ask == 'y':
                 browser.find_element(By.ID,'submit').click()
                 sleep(wait)
                 browser.implicitly_wait(5)
-                #cek > ke verifikasi || ke akhir sukses (perbaikan script sampai disini 5 nov 2024)
+                #cek > ke verifikasi || ke akhir sukses 
                 try :
-                    #halaman verifikasi untuk akun akun yang butuh verifikasi (belum fix 5 nov 2024)
+                    #halaman verifikasi untuk akun akun yang butuh verifikasi
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span')
                     browser.implicitly_wait(10)
                     klik('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/input')
@@ -106,7 +105,7 @@ if ask == 'y':
                 except:
                     print('no need verification')
                     
-                #akhir sukses script dan skrinsot (fix, belum terkonfirmasi 5 nov 2024)
+                #akhir sukses script dan skrinsot 
                 sleep(wait)
                 browser.implicitly_wait(15)
                 browser.save_screenshot(sekolah+'/'+item[0]+'.png')
